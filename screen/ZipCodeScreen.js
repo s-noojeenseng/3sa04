@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import React from 'react'
-import { FlatList, View, Text, StyleSheet, TouchableHighlight } from 'react-native'
+import { FlatList, View, Text, StyleSheet, TouchableHighlight, ImageBackground, } from 'react-native'
 
 const availableZipItems = [
     { place: 'Hatyai', code: '90110' },
@@ -24,11 +24,13 @@ const ZipItem = ({ place, code, navigation }) => (
 export default function ZipCodeScreen() {
     const navigation = useNavigation()
     return (
-        <FlatList
-            data={availableZipItems}
-            keyExtractor={item => item.code}
-            renderItem={({ item }) => <ZipItem {...item} navigation={navigation} />}
-        />
+        <ImageBackground source={require('../home.jpg')} style={styles.image}>
+            <FlatList
+                data={availableZipItems}
+                keyExtractor={item => item.code}
+                renderItem={({ item }) => <ZipItem {...item} navigation={navigation} />}
+            />
+        </ImageBackground>
     )
 }
 
@@ -36,17 +38,24 @@ const styles = StyleSheet.create({
     zipItem: {
         flex: 1,
         flexDirection: 'row',
+        marginTop: 5,
+        marginBottom: 5,
     },
     zipPlace: {
         flex: 1,
         fontSize: 16,
         textAlign: 'left',
         marginLeft: 20,
+        color:"#000000",
     },
     zipCode: {
         flex: 1,
         fontSize: 16,
         textAlign: 'right',
         marginRight: 20,
-    }
+    },
+    image: {
+        width: '100%',
+        height: '100%',
+    },
 })
