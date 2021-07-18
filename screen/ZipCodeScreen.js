@@ -36,15 +36,17 @@ const styles = StyleSheet.create({
     zipItem: {
         flex: 1,
         flexDirection: 'row',
-        // justifyContent: 'space-between'
-        backgroundColor: 'rgba(255, 255, 255, 0.8)',
     },
     zipPlace: {
         flex: 1,
         fontSize: 16,
+        textAlign: 'left',
+        marginLeft: 20,
     },
     zipCode: {
         flex: 1,
         fontSize: 16,
+        textAlign: 'right',
+        marginRight: 20,
     }
 })
