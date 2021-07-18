@@ -1,10 +1,13 @@
 import React from 'react'
-import { Text, View, StyleSheet} from 'react-native'
+import { Text, View, StyleSheet, Image } from 'react-native'
 
 export default function Forecast(props) {
     return (
         <View style={styles.container}>
             <Text style={styles.name}>{props.name}</Text>
+            <Image
+                source={{ uri: 'http://openweathermap.org/img/wn/' + props.icon + '@2x.png', }}
+                style={styles.icon} />
             <Text style={styles.main}>{props.main}</Text>
             <Text style={styles.description}>{props.description}</Text>
             <Text style={styles.temp}>{props.temp} °C</Text>
@@ -18,43 +21,41 @@ export default function Forecast(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     name: {
-        textAlign: 'center',
         fontSize: 36,
         color: 'white',
     },
     main: {
-        textAlign: 'center',
-        fontSize: 36,
+        fontSize: 28,
         color: 'white',
-        marginTop: 24,
     },
     description: {
-        textAlign: 'center',
         fontSize: 16,
         color: 'white',
     },
     temp: {
-        textAlign: 'center',
-        fontSize: 36,
+        fontSize: 28,
         color: 'white',
-        marginTop: 24,
+        marginTop: 20,
     },
     feels_like: {
-        textAlign: 'center',
         fontSize: 16,
         color: 'white',
     },
     temp_max: {
-        textAlign: 'center',
         fontSize: 16,
         color: 'white',
-        marginTop: 24,
+        marginTop: 20,
     },
     temp_min: {
-        textAlign: 'center',
         fontSize: 16,
         color: 'white',
+    },
+    icon: {
+        width: 60,
+        height: 60,
     },
 })

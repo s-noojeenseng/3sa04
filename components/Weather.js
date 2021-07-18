@@ -11,6 +11,7 @@ export default function Weather(props) {
         feels_like: 0,
         temp_min: 0,
         temp_max: 0,
+        icon: 'icon',
     })
 
     useEffect(() => {
@@ -27,6 +28,7 @@ export default function Weather(props) {
                         feels_like: json.main.feels_like,
                         temp_min: json.main.temp_min,
                         temp_max: json.main.temp_max,
+                        icon: json.weather[0].icon,
                     });
                 })
                 .catch((error) => {
